@@ -1,31 +1,29 @@
-Notice: An updated standards compliant (mac80211), in-kernel driver for
-rtl8822/12bu chipset based adapters and modules is available and as of
-kernel 6.12 is of good quality. If your distro uses kernel 6.12 or
-later, there is no need to install this driver. The in-kernel driver is
-part of the rtw88 series of drivers. The in-kernel driver is Linux
-Standards compliant (mac80211) and is a much better driver than this
-one. This driver will no longer get API related updates beyond kernel
-6.14 (unless provided by a user). If you use a kernel prior to 6.14, it
-is possible to use the new standards compliant driver by going to the
-following repo:
+## How to use it？
 
-https://github.com/lwfinger/rtw88
+this repo can be used for： **AGX Orin、 Orin NX、 Orin nano、 Jetson nano**
 
-If you decide to use the in-kernel driver, remember to first remove the
-driver in this repo. You can run the following to remove the driver in
-this repo:
+On some Jetson setups, compile fails unless `/lib/modules/$(uname -r)/build`
+points to the installed kernel source tree.
 
-$ sudo sh remove-driver.sh
+Run this exact sequence:
 
-It has been my pleasure to maintain this driver for the last several
-years. Thanks to all of those who helped.
+```bash
+sudo rm -r /lib/modules/$(uname -r)/build
+sudo ln -s /usr/src/linux-headers-$(uname -r)-ubuntu22.04_aarch64/3rdparty/canonical/linux-jammy/kernel-source \
+  /lib/modules/$(uname -r)/build
+```
 
-Remember: Ask not what your operating system can do for you, but
-what you can do for your operating system.
+complie , install and enable:
 
-Regards,
+```bash
+cd jetson-usb-wifi-88x2bu
+make
+sudo make install
+sudo dpemod -a
+sudo modprobe 88x2bu
+```
 
-@morrownr
+
 
 ## 88x2bu ( 88x2bu.ko ) :rocket:
 
