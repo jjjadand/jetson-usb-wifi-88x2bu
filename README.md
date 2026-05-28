@@ -7,13 +7,19 @@ points to the installed kernel source tree.
 
 Run this exact sequence:
 
+For Jetpack 5: 
 ```bash
 sudo rm -r /lib/modules/$(uname -r)/build
-sudo ln -s /usr/src/linux-headers-$(uname -r)-ubuntu22.04_aarch64/3rdparty/canonical/linux-jammy/kernel-source \
-  /lib/modules/$(uname -r)/build
+sudo ln -s /usr/src/linux-headers-5.10.192-tegra-ubuntu20.04_aarch64/kernel-5.10/ /lib/modules/$(uname -r)/build
 ```
 
-complie , install and enable:
+For Jetpack 6: 
+```bash
+sudo rm -r /lib/modules/$(uname -r)/build
+sudo ln -s /usr/src/linux-headers-$(uname -r)-ubuntu22.04_aarch64/3rdparty/canonical/linux-jammy/kernel-source /lib/modules/$(uname -r)/build
+```
+
+then complie , install and enable:
 
 ```bash
 cd jetson-usb-wifi-88x2bu
