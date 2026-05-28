@@ -1,6 +1,6 @@
 ## How to use it？
 
-this repo can be used for： **AGX Orin、 Orin NX、 Orin nano、 Jetson nano**
+this repo can be used for： **AGX Orin、 Orin NX、 Orin nano、 Jetson nano** (Jetson nano no need to install this repo)
 
 On some Jetson setups, compile fails unless `/lib/modules/$(uname -r)/build`
 points to the installed kernel source tree.
